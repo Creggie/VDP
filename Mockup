@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VDP Masters | Enterprise Automotive Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Crisp modern blue
+                            600: '#0284c7', // Primary action blue
+                            900: '#0c4a6e', // Deep enterprise navy/slate
+                        },
+                        surface: {
+                            50: '#f8fafc', // Very light slate/gray
+                            100: '#f1f5f9',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        /* Smooth scrolling for anchor links */
+        html { 
+            scroll-behavior: smooth; 
+        }
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Subtle grid pattern for technical "data" feel in specific sections */
+        .bg-grid-pattern {
+            background-image: radial-gradient(var(--tw-colors-gray-200) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Loading spinner animation */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin 3s linear infinite;
+        }
+        
+        /* Styles for injected HTML from LLM */
+        .llm-output h4 { font-size: 1.125rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; color: #fff; }
+        .llm-output p { margin-bottom: 1rem; color: #94a3b8; }
+        .llm-output ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; color: #94a3b8; }
+        .llm-output li { margin-bottom: 0.25rem; }
+        .llm-output strong { color: #e2e8f0; }
+        .llm-output blockquote { border-left: 4px solid #0ea5e9; padding-left: 1rem; font-style: italic; color: #cbd5e1; margin-top: 1rem; background: rgba(14, 165, 233, 0.1); padding: 1rem; rounded: 0.5rem; }
+    </style>
+</head>
+<body class="bg-white text-surface-900 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-brand-600 rounded flex items-center justify-center">
+                        <i data-lucide="layers" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-surface-900">VDP Masters</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#platform" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Platform</a>
+                    <a href="#case-studies" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Case Studies</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="#" class="hidden md:block text-gray-600 hover:text-brand-600 font-medium mr-6">Log in</a>
+                    <a href="#" class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-2.5 rounded-md font-medium transition-all shadow-lg shadow-brand-500/30">Request Demo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-surface-50 bg-grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-600 text-sm font-semibold mb-6">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Analytics-Validated VDP Sessions
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-extrabold tracking-tight text-surface-900 leading-tight mb-6">
+                        Turn Inventory into <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">Revenue. Faster.</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        VDP Masters is the enterprise predictive marketing engine built to turn inventory faster. We ingest competitor data, match your specific VINs to high-intent local buyers, and drop them directly onto your Vehicle Detail Pages. We then validate every session in GA4, ensuring you only pay for proven, high-quality traffic.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-md font-semibold transition-all shadow-xl shadow-brand-500/20 text-lg flex items-center justify-center gap-2">
+                            Request Platform Demo
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                        <button class="bg-white border border-gray-200 hover:border-brand-600 hover:text-brand-600 text-surface-900 px-8 py-4 rounded-md font-semibold transition-all text-lg flex items-center justify-center gap-2 shadow-sm">
+                            <i data-lucide="play-circle" class="w-5 h-5"></i>
+                            See How It Works
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual Abstract -->
+                <div class="relative lg:ml-10">
+                    <div class="aspect-[4/3] bg-surface-800 rounded-xl shadow-2xl overflow-hidden relative border border-surface-800/50">
+                        <div class="absolute inset-0 bg-gradient-to-br from-surface-800 to-surface-900 flex flex-col items-center justify-center p-8">
+                            <i data-lucide="line-chart" class="w-16 h-16 text-brand-500 mb-4 opacity-50"></i>
+                            <p class="text-surface-100 font-medium text-center">[ Macro Photography of Vehicle ]<br><span class="text-sm text-surface-400 font-normal">Overlaid with sleek UI Dashboard Data</span></p>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-2xl border border-gray-100 flex items-center gap-4 z-20">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium">Net-New VDP Users</p>
+                                <p class="text-2xl font-bold text-surface-900">+312%</p>
+                            </div>
+                        </div>
+                        <div class="absolute -top-6 -right-6 bg-white p-5 rounded-lg shadow-2xl border border-gray-100 flex items-center gap-4 z-20 hidden md:flex">
+                            <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center text-brand-600">
+                                <i data-lucide="radar" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">Market Day Supply</p>
+                                <p class="text-lg font-bold text-surface-900">Optimized</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Trust Bar -->
+    <section class="border-y border-gray-100 bg-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-8">Trusted by the Nation's Top Multi-Rooftop Auto Groups</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="text-xl font-black tracking-tighter text-surface-800 flex items-center gap-2"><i data-lucide="hexagon" class="w-6 h-6"></i> AUTO<span class="font-light">NATION</span></div>
+                <div class="text-xl font-black tracking-tighter text-surface-800 flex items-center gap-2"><i data-lucide="triangle" class="w-6 h-6"></i> LITHIA<span class="font-light">MOTORS</span></div>
+                <div class="text-xl font-black tracking-tighter text-surface-800 flex items-center gap-2"><i data-lucide="circle-dot" class="w-6 h-6"></i> HENDRICK<span class="font-light">CARS</span></div>
+                <div class="text-xl font-black tracking-tighter text-surface-800 flex items-center gap-2"><i data-lucide="square" class="w-6 h-6"></i> SONIC<span class="font-light">AUTO</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Agitator / Shift Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-5xl font-extrabold text-surface-900 mb-6 tracking-tight">Bypass the Browse. <br/>Drive Buyers Straight to the Close.</h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                Stop waiting for shoppers to navigate your website. We bring the buyer directly to the metal. VDP Masters deploys predictive machine learning to identify high-intent shoppers exactly where they are, dropping them straight onto the VDPs of the specific vehicles they want to buy. 
+                <span class="block mt-4 font-semibold text-brand-600">No friction. No funnel drop-off. Just highly qualified, bottom-of-funnel traffic that converts.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- The 4-Step Process Section -->
+    <section id="platform" class="py-24 bg-surface-50 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl lg:text-5xl font-extrabold text-surface-900 mb-4 tracking-tight">The Path to the Sale</h2>
+                <p class="text-xl text-gray-600">A fully transparent, data-driven assembly line designed to move vehicles at scale.</p>
+            </div>
+
+            <div class="space-y-32">
+                <!-- Step 1: Market Intelligence -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-200 text-surface-800 font-bold text-sm mb-6 uppercase tracking-wider">
+                            <i data-lucide="database" class="w-4 h-4 text-brand-600"></i> Step 1
+                        </div>
+                        <h3 class="text-3xl font-bold text-surface-900 mb-4">Market Intelligence</h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            We do not just look at your lot. Every day, our system ingests your inventory and scrapes your top competitors. We analyze this data to identify slow-moving inventory, popular trims, and gaps in the local market day supply.
+                        </p>
+                    </div>
+                    <div class="bg-gray-200 aspect-square lg:aspect-video rounded-2xl shadow-inner border border-gray-300 flex items-center justify-center relative overflow-hidden">
+                        <div class="text-center text-gray-500 font-medium z-10 p-6">
+                            [ Visual: Dashboard comparing Dealer Inventory vs. Competitor Inventory Data ]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Predictive Matchmaking -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1 bg-gray-200 aspect-square lg:aspect-video rounded-2xl shadow-inner border border-gray-300 flex items-center justify-center relative overflow-hidden">
+                        <div class="text-center text-gray-500 font-medium z-10 p-6">
+                            [ Visual: Abstract graphic of specific VINs connecting to local user profiles ]
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-200 text-surface-800 font-bold text-sm mb-6 uppercase tracking-wider">
+                            <i data-lucide="cpu" class="w-4 h-4 text-brand-600"></i> Step 2
+                        </div>
+                        <h3 class="text-3xl font-bold text-surface-900 mb-4">Multi-Channel Distribution</h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            We put your inventory exactly where buyers are looking. Using direct API integrations, VDP Masters automatically syncs and displays your listings across 10 major advertising platforms.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Direct-to-VDP Distribution -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-200 text-surface-800 font-bold text-sm mb-6 uppercase tracking-wider">
+                            <i data-lucide="zap" class="w-4 h-4 text-brand-600"></i> Step 3
+                        </div>
+                        <h3 class="text-3xl font-bold text-surface-900 mb-4">Machine Learning at Work</h3>
+                        <div class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Our proprietary machine learning engine continuously gets smarter the longer your campaigns run. By analyzing thousands of data points in real-time, it automatically optimizes your strategy to drive better results.
+                            <span class="block mt-4 font-semibold text-surface-900">How it works:</span>
+                            <ul class="mt-2 space-y-3 text-base">
+                                <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500 flex-shrink-0"></i><span><strong class="text-surface-900">Deep Data Analysis:</strong> We continuously analyze your inventory, competitor inventory, ad platform performance, and user session engagement (including both hard and soft conversion events).</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500 flex-shrink-0"></i><span><strong class="text-surface-900">Intelligent Refinement:</strong> The system uses this data to automatically adjust your traffic mix, refine your audience targeting, and optimize your ad creatives.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500 flex-shrink-0"></i><span><strong class="text-surface-900">Continuous Improvement:</strong> The result is a noticeable, compounding improvement in shopper engagement over time as your campaigns continue to learn.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-200 aspect-square lg:aspect-video rounded-2xl shadow-inner border border-gray-300 flex items-center justify-center relative overflow-hidden">
+                        <div class="text-center text-gray-500 font-medium z-10 p-6">
+                            [ Visual: High-Fidelity UI showing an ad clicking straight through to a VDP ]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: GA4 Validation -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1 bg-gray-200 aspect-square lg:aspect-video rounded-2xl shadow-inner border border-gray-300 flex items-center justify-center relative overflow-hidden">
+                        <div class="text-center text-gray-500 font-medium z-10 p-6">
+                            [ Visual: Sleek GA4 Analytics Chart highlighting "Photo Swipes" and "Conversions" ]
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-200 text-surface-800 font-bold text-sm mb-6 uppercase tracking-wider">
+                            <i data-lucide="bar-chart-3" class="w-4 h-4 text-brand-600"></i> Step 4
+                        </div>
+                        <h3 class="text-3xl font-bold text-surface-900 mb-4">GA4 Validation</h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            We do not grade our own homework. By integrating directly with your GA4, we validate true traffic quality. We track deep engagement events, from hard conversions to soft signals like VDP photo swipes, delivering proven ROI.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study / Proof Section -->
+    <section id="case-studies" class="py-24 bg-surface-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-600 opacity-10 skew-x-12 translate-x-32"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 relative">
+                    <div class="aspect-[3/4] bg-surface-800 rounded-xl overflow-hidden shadow-2xl border border-surface-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center p-8 text-center text-surface-400">
+                            [ High-End Photo of Flagship Dealership or CMO Portrait ]
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 lg:pl-10">
+                    <div class="text-brand-400 font-semibold tracking-wider uppercase mb-4 text-sm">Featured Enterprise Success</div>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-8 leading-tight">
+                        How <span class="text-white border-b-2 border-brand-500">Major Auto Group</span> Increased VDP Engagement by 300% and Cut Cost-Per-Sale in Half.
+                    </h2>
+                    <div class="grid grid-cols-2 gap-8 mb-10">
+                        <div class="border-l-2 border-brand-500 pl-4">
+                            <div class="text-3xl font-bold text-white mb-1">300%</div>
+                            <div class="text-surface-400 text-sm">Increase in VDP Views</div>
+                        </div>
+                        <div class="border-l-2 border-brand-500 pl-4">
+                            <div class="text-3xl font-bold text-white mb-1">51%</div>
+                            <div class="text-surface-400 text-sm">Reduction in CPA</div>
+                        </div>
+                    </div>
+                    <blockquote class="text-xl italic text-surface-300 mb-8 border-l-4 border-surface-700 pl-6">
+                        "VDP Masters completely changed how we merchandise our inventory across our 15 locations. It's not just traffic; it's actual buyers landing directly on the metal."
+                    </blockquote>
+                    <button class="text-white font-semibold flex items-center gap-2 hover:text-brand-400 transition-colors">
+                        Read the Full Case Study <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW GEMINI API INTERACTIVE DEMO -->
+    <section class="py-24 bg-[#0B1120] text-white border-y border-surface-800 relative">
+        <div class="absolute inset-0 bg-brand-900/10 bg-grid-pattern opacity-20 pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-900/50 border border-brand-500/30 text-brand-400 font-bold text-sm mb-4 uppercase tracking-wider">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> Interactive Demo
+                </div>
+                <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 tracking-tight">Test the Intelligence Engine</h2>
+                <p class="text-xl text-surface-400">Describe a real inventory challenge below, and watch our predictive model generate a custom turn-rate strategy and sample ad copy in seconds.</p>
+            </div>
+
+            <div class="bg-surface-800/80 backdrop-blur-md border border-surface-700 rounded-2xl p-6 lg:p-10 shadow-2xl">
+                <label for="inventory-problem" class="block text-sm font-semibold text-surface-300 mb-2">What vehicles are stuck on your lot?</label>
+                <textarea id="inventory-problem" rows="3" 
+                    class="w-full bg-surface-900 border border-surface-600 rounded-xl p-4 text-white placeholder-surface-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all resize-none mb-6" 
+                    placeholder="e.g., We have twenty 2024 Ford F-150 Lightnings that have been sitting for 90+ days in the Austin market."></textarea>
+                
+                <button id="generate-btn" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-brand-500/20 text-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                    ✨ Generate Turn Strategy
+                </button>
+
+                <!-- Loading State -->
+                <div id="loading-state" class="hidden mt-8 p-8 border border-surface-700 border-dashed rounded-xl bg-surface-900/50 flex flex-col items-center justify-center text-brand-400">
+                    <i data-lucide="loader-2" class="w-10 h-10 animate-spin-slow mb-4"></i>
+                    <p class="font-medium animate-pulse">Running predictive market analysis...</p>
+                </div>
+
+                <!-- Output Area -->
+                <div id="strategy-output" class="hidden mt-8 p-8 rounded-xl bg-surface-900 border border-brand-500/30 shadow-inner llm-output transition-opacity duration-500">
+                    <!-- LLM content injected here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-surface-900 mb-6 tracking-tight">Ready to dominate your market?</h2>
+            <p class="text-xl text-gray-600 mb-10">Join the top automotive groups turning inventory faster with predictive machine learning.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-brand-600 hover:bg-brand-500 text-white px-10 py-4 rounded-md font-semibold transition-all shadow-xl shadow-brand-500/20 text-lg">
+                    Request a Platform Demo
+                </button>
+                <button class="bg-white border-2 border-surface-200 hover:border-surface-300 text-surface-900 px-10 py-4 rounded-md font-semibold transition-all text-lg">
+                    Talk to Sales
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="bg-surface-50 py-12 border-t border-gray-200 text-center text-gray-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 VDP Masters. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Gemini API Integration
+        const apiKey = ""; // Execution environment provides this
+        const btn = document.getElementById('generate-btn');
+        const input = document.getElementById('inventory-problem');
+        const loading = document.getElementById('loading-state');
+        const output = document.getElementById('strategy-output');
+
+        const systemPrompt = `You are the VDP Masters AI Intelligence Engine. A dealership user will provide an inventory problem (e.g., specific cars that aren't selling). 
+        Your goal is to provide a highly analytical, aggressive, enterprise-grade predictive marketing strategy.
+        
+        Provide:
+        1. A 3-step strategy to move that specific inventory using Direct-to-VDP targeting, market data, and competitor scraping.
+        2. ONE sample of high-converting, punchy ad copy.
+
+        FORMAT INSTRUCTIONS: 
+        Respond ONLY using raw HTML tags so it renders beautifully in a web widget. Use <h4>, <p>, <ul>, <li>, and <strong>. 
+        Wrap the ad copy in a <blockquote> tag. 
+        DO NOT wrap the response in markdown blocks like \`\`\`html.
+        Keep the entire response under 200 words. Be confident and authoritative.`;
+
+        async function generateStrategy(query) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: query }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            let retries = 5;
+            let delay = 1000;
+            
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "<p>Failed to generate strategy.</p>";
+                } catch (error) {
+                    if (i === retries - 1) {
+                        console.error('API Error:', error);
+                        return `<p class="text-red-400">Connection to intelligence engine timed out. Please try again.</p>`;
+                    }
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2; // Exponential backoff
+                }
+            }
+        }
+
+        btn.addEventListener('click', async () => {
+            const query = input.value.trim();
+            if (!query) {
+                input.focus();
+                return;
+            }
+
+            // Update UI to loading state
+            btn.disabled = true;
+            btn.innerHTML = 'Analyzing Market Data...';
+            output.classList.add('hidden');
+            loading.classList.remove('hidden');
+
+            // Call Gemini
+            const resultHtml = await generateStrategy(query);
+
+            // Update UI with results
+            output.innerHTML = resultHtml;
+            loading.classList.add('hidden');
+            output.classList.remove('hidden');
+            
+            btn.disabled = false;
+            btn.innerHTML = '✨ Generate Another Strategy';
+        });
+    </script>
+</body>
+</html>
